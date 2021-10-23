@@ -46,3 +46,14 @@ class SignUpForm(forms.Form):
         if password != password2 :
             raise forms.ValidationError('The passwords entered are not the same ')
         return data
+
+class LoginForm(forms.Form):
+    user_name=forms.CharField(
+        widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "Enter your user name"})
+    )
+    password=forms.CharField(
+        widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": "Enter your password"})
+    )
+    captcha = ReCaptchaField(
+        widget=ReCaptchaV2Checkbox
+    )
