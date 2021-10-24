@@ -6,7 +6,7 @@
 {% block content %}
             {% if user is not None %}
             سلام {{user}} , خوش آمدید !<br/>
-            <a href="/admin/logout">خروج</a>
+            <a href={% url "logout" %}>خروج</a>
             {% else %}
             <a href= {% url "login" %}>ورود</a><br/>
             <a href= {% url "signup" %}>ثبت نام</a>

@@ -1,21 +1,8 @@
 from django.shortcuts import render,redirect,HttpResponse
-
-# Create your views here.
-from django.contrib.auth import authenticate, login, get_user_model
+from django.contrib.auth import authenticate, login, get_user_model, logout
 from django import forms
 from .forms import SignUpForm, LoginForm
 User=get_user_model()
-
-def home(request):
-    if request.user.is_authenticated :
-        user = request.user.username
-    else:
-        user = None
-    context={
-        'page_title': 'صفحه اصلی',
-        'user' : user,
-    }
-    return render(request, 'home.html', context)
 
 def signup_page(request):
     form=SignUpForm(request.POST or None)
@@ -52,3 +39,6 @@ def login_page(request):
             
     return render(request, "account_app/login.html", context)
 
+def logout_page(request):
+    logout(request)
+    return redirect('/')
