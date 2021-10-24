@@ -7,11 +7,20 @@ from .forms import SignUpForm, LoginForm
 User=get_user_model()
 
 def home(request):
-    return HttpResponse('home')
+    if request.user.is_authenticated :
+        user = request.user.username
+    else:
+        user = None
+    context={
+        'page_title': 'صفحه اصلی',
+        'user' : user,
+    }
+    return render(request, 'home.html', context)
 
 def signup_page(request):
     form=SignUpForm(request.POST or None)
     context={
+        'page_title': 'ثبت نام',
         'form':form,
     }
     if form.is_valid():
@@ -25,6 +34,7 @@ def signup_page(request):
 def login_page(request):
     form = LoginForm(request.POST or None)
     context = {
+        'page_title': 'ورود',
         "form": form
     }    
     if form.is_valid():
@@ -35,6 +45,10 @@ def login_page(request):
             login(request, user)
             return redirect('/')
         else:
-            return redirect('/signup')
+            context={
+                'page_title': 'ورود',
+                'form': form,
+            }
+            
     return render(request, "account_app/login.html", context)
 

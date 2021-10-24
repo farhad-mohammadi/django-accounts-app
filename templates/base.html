@@ -1,0 +1,74 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META NAME="description" CONTENT="سایت من">
+<META NAME="keywords" CONTENT="django-recaptch">
+<META NAME="DesignerUrl" CONTENT="http://Avazak.ir">
+<META NAME="Designer" CONTENT="AVAZAK">
+<meta name="viewport" content="width=device-width; initial-scale=1.0">
+<link rel="alternate" type="application/rss+xml" title="[RB:Blog_Title]" href="[RB:Blog_Xml_Link]" />
+<title>{% block title %}{% endblock %}</title>
+<link href="http://avazak.ir/Theme/style/821.css" type="text/css" rel="stylesheet">
+<!--[if IE 5]>
+<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+<div align="center">
+
+<div id="navbarbox"><div id="navbar">
+<span class="home"><a href={% url "home" %}>صفحه اصلی</a></div>
+<a href={% url "home" %}>آرشیو مقالات</a>
+<a href={% url "home" %}>تازه ها</a>
+<a  href={% url "home" %}>تماس با ما</a>
+
+</div></div>
+
+<div class="line"></div>
+
+<div id="headerbox"><div id="header">
+<div class="right">
+<h1 class="h1">accounts app</h1>
+<div class="desc">سایت نوشته شده برای تست برنامه ی اکانت با کپچا</div>
+</div>
+
+<div class="left">
+<div style="float:right;width:75%;">
+<form style="margin:0px;padding:0px;" target="_new" method=get action=http://www.google.com/search>
+<input type="text" id="inputsearch" name=q maxlength="40" placeholder="جستجو ..." />
+<input value="/" type="hidden" name=sitesearch checked>
+<input type=hidden name=ie value=UTF-8>
+<input type=hidden name=oe value=UTF-8>
+</div>
+<div style="float:left;width:25%;">
+<input class="sbs" type="submit" name="btnG" value="جستجو">
+</form>
+</div>
+</div>
+</div>
+
+<div class="line"></div>
+
+
+</div>
+
+
+<!-- end header -->
+{% block content %}{% endblock %}
+<div class="line"></div>
+
+
+<div id="footer">
+<div id="about">تمامی حقوق این وب سایت متعلق به <a href={% url "home" %} title="تالار شیشه ای" target="_blank">تیم تالار شیشه ای</a> است. 
+<span>||</span> طراح قالب <a href="http://avazak.ir" title="قالب وبلاگ" target="_blank">avazak.ir</a></div>
+</div>
+
+
+</div>
+
+<!-- end Footer -->
+
+</body>
+</html>

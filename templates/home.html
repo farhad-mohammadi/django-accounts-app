@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+{{page_title}}
+{% endblock %}
+
+{% block content %}
+            {% if user is not None %}
+            سلام {{user}} , خوش آمدید !<br/>
+            <a href="/admin/logout">خروج</a>
+            {% else %}
+            <a href= {% url "login" %}>ورود</a><br/>
+            <a href= {% url "signup" %}>ثبت نام</a>
+            {% endif %}
+<hr/>
+<h1 class="h1">درباره این سایت</h1>
+<div class="desc">این سایت برای طراحی ثفحات ثبت نام و ورود ساخته شده است, نکته مهم این که برای ایمنی بیشتر از کتابخانه ی django-recaptcha و کد کپچا در فرم ها استفاده شده است .</div>
+</div>
+
+
+{% endblock %}
